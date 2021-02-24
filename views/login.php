@@ -5,45 +5,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login and register</title>
+    <title>INDEX</title>
 
     <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
+    <?php
+
+    // Koppling till databas
+    $dsn = "mysql:host=localhost;dbname=database";
+    $user = "root";
+    $password = "";
+    $pdo = new PDO($dsn, $user, $password);
+
+    // Visa meddelande från databasen
+    echo "<h2>YOU SUCCESSFULLY REGISTERED!</h2><br />";
+    $stm = $pdo->query("SELECT id, name, username, password FROM users");?>
+
+    <?php while ($row = $stm->fetch()) { ?>
+    <div>
+        <?php $row['id']?>
+        <?php echo $row['name']?>
+        <?php echo $row['username']?>
+        <?php echo $row['password']?>
+    </div>
+
+    <?php } ?> 
 
 
-<?php
-
-$dsn = "mysql:host=localhost;dbname=database";
-$user = "root";
-$password = "";
-
-$pdo = new PDO($dsn, $user, $password); 
-
-print_r($_POST);
-
-$name = $_POST['name'];
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-$sql = "INSERT INTO users (name, username, password) VALUES(:name_IN, :username_IN, :password_IN) ";
-$stm = $pdo->prepare($sql);
-$stm->bindParam(':name_IN', $name);
-$stm->bindParam(':username_IN', $username);
-$stm->bindParam(':password_IN', $password);
-
-if($stm->execute()) {
-   header("location:register.php");
-} else {
-    echo "Något gick fel!";
-}
-
-?>
-
-
- 
+    <!-- FORMS  --> 
+    <h2> LOG IN HERE! </h2>
+    <form method="POST" action=" ">
+        <input type="text" placeholder="Your username..." name="username"> <br>
+        <input type="password" placeholder="Your password..." name="password"> <br>
+        <input type="submit" value="Log in" class="register-btn">
+    </form>
+    
 </body>
 
 </html>

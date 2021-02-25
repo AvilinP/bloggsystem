@@ -20,10 +20,7 @@ session_start();
     <?php
 
     // Koppling till databas
-    $dsn = "mysql:host=localhost;dbname=database";
-    $user = "root";
-    $password = "";
-    $pdo = new PDO($dsn, $user, $password);
+    include("db.php");
 
 if(isset($_POST['register'])) 
 { 
@@ -70,7 +67,8 @@ if(empty($_POST["name"]) || empty($_POST["username"]) || empty($_POST["password"
         <input type="text" placeholder="Your name..." name="name"> <br>
         <input type="text" placeholder="Your username..." name="username"> <br>
         <input type="password" placeholder="Your password..." name="password"> <br>
-        <input type="submit" value="Register" name="register" class="register-btn">
+        <input type="submit" value="Register" name="register" class="register-btn"> <br>
+        <p> Already registered? click here! <input type ="button" value="Login" name="login" class="loginbtn" onclick="location.href='login.php';"> <p>
     </form>
     
 </body>

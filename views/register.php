@@ -36,32 +36,35 @@ if(empty($_POST["name"]) || empty($_POST["username"]) || empty($_POST["password"
     // Must fix error message on register.php 
     echo "All fields are required to register! </ br>";
     
-            // Check username before register in db -> don't work
-
-            // else if(isset($_POST['username'])){
-            //     $username = $_POST['username'];
-            
-            //     $stmt = $pdo->prepare("SELECT username FROM users WHERE username=:username");
-            //     $stmt->bindValue(':username', $username, PDO::PARAM_STR);
-            //     $stmt->execute(); 
-            //     $count = $stmt->fetchColumn();
-            
-            //     echo "Username already taken";
-   
-            } else {
+            // Check username before register in db
     
-                $sql = "INSERT INTO users (name, username, password) VALUES(:name_IN, :username_IN, :password_IN) ";
-                $stm = $pdo->prepare($sql);
-                $stm->bindParam(':name_IN', $name);
-                $stm->bindParam(':username_IN', $username);
-                $stm->bindParam(':password_IN', $password);
+} else {
 
-                    if($stm->execute()) {
-                        header("location:login.php");
-                    }
-            }   
-      
-        //}
+    $username = $_POST['username'];
+
+    $stmt = $pdo->prepare("SELECT username FROM users WHERE username=:username");
+    $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+    $stmt->execute(); 
+    $count = $stmt->rowCount();
+
+    if($count > 0){
+        echo "Username already taken";
+
+    } else {
+
+    // is stopped by else if above 
+    $sql = "INSERT INTO users (name, username, password) VALUES(:name_IN, :username_IN, :password_IN) ";
+    $stm = $pdo->prepare($sql);
+    $stm->bindParam(':name_IN', $name);
+    $stm->bindParam(':username_IN', $username);
+    $stm->bindParam(':password_IN', $password);
+
+        if($stm->execute()) {
+            header("location:login.php");
+        }
+}   
+}
+        
 
 ?>
 

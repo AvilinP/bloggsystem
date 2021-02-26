@@ -23,7 +23,7 @@
 
     <?php while ($row = $stm->fetch()) { ?>
     <div>
-        <?php $row['id']?>
+        <?php echo $row['id']?>
         <?php echo $row['name']?>
         <?php echo $row['username']?>
         <?php echo $row['password']?>

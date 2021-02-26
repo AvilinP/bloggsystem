@@ -17,10 +17,11 @@ session_start();
 </head>
 
 <body>
-    <?php
+<?php
 
-    // Koppling till databas
-    include("db.php");
+// Koppling till databas
+include("db.php");
+
 
 if(isset($_POST['register'])) 
 { 
@@ -30,37 +31,40 @@ if(isset($_POST['register']))
 }
 
 // Verify required input fields when register
-
-
-if(empty($_POST["name"]) || empty($_POST["username"]) || empty($_POST["password"]))
+if(empty($_POST["name"]) || empty($_POST["username"]) || empty($_POST["password"] ))
 {
     // Must fix error message on register.php 
-    $message = '<label> All fields are required to register</label>';
+    echo "All fields are required to register! </ br>";
     
-} else {
+            // Check username before register in db -> don't work
 
-    $sql = "INSERT INTO users (name, username, password) VALUES(:name_IN, :username_IN, :password_IN) ";
-    $stm = $pdo->prepare($sql);
-    $stm->bindParam(':name_IN', $name);
-    $stm->bindParam(':username_IN', $username);
-    $stm->bindParam(':password_IN', $password);
+            // else if(isset($_POST['username'])){
+            //     $username = $_POST['username'];
+            
+            //     $stmt = $pdo->prepare("SELECT username FROM users WHERE username=:username");
+            //     $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+            //     $stmt->execute(); 
+            //     $count = $stmt->fetchColumn();
+            
+            //     echo "Username already taken";
+   
+            } else {
+    
+                $sql = "INSERT INTO users (name, username, password) VALUES(:name_IN, :username_IN, :password_IN) ";
+                $stm = $pdo->prepare($sql);
+                $stm->bindParam(':name_IN', $name);
+                $stm->bindParam(':username_IN', $username);
+                $stm->bindParam(':password_IN', $password);
 
-      if($stm->execute()) {
-        header("location:login.php");
-      } else {
-        echo "Something went wrong!";      
-        }
-
-}
+                    if($stm->execute()) {
+                        header("location:login.php");
+                    }
+            }   
+      
+        //}
 
 ?>
 
-<!--  Kan tas bort -->
- <?php 
-    if(isset($message)) {
-        echo '<label>'.$message.'<label>';
-    } 
-?>
 
     <!-- FORMS  --> 
     <h2> REGISTER HERE! </h2>

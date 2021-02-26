@@ -15,10 +15,7 @@
     <?php
 
     // Koppling till databas
-    $dsn = "mysql:host=localhost;dbname=database";
-    $user = "root";
-    $password = "";
-    $pdo = new PDO($dsn, $user, $password);
+    include("db.php");
 
     // Visa meddelande från databasen
     echo "<h2>YOU SUCCESSFULLY REGISTERED!</h2><br />";

@@ -34,6 +34,7 @@ if(isset($_POST['register']))
 
 // Verify required input fields when register
 
+
 if(empty($_POST["name"]) || empty($_POST["username"]) || empty($_POST["password"]))
 {
     // Must fix error message on register.php 
@@ -57,8 +58,8 @@ if(empty($_POST["name"]) || empty($_POST["username"]) || empty($_POST["password"
 
 ?>
 
-
-<?php 
+<!--  Kan tas bort -->
+ <?php 
     if(isset($message)) {
         echo '<label>'.$message.'<label>';
     } 

@@ -1,7 +1,41 @@
 <?php
-// Start the session
 session_start();
+
+include("db.php");
+
+$username = $_POST['username'];
+$password = $_POST['password'];
+$name = $_POST['name'];
+
+
+    $sql = "INSERT INTO users(username, password,name) VALUES(:username_IN, :password_IN, :name_IN)";
+    $stm = $pdo->prepare($sql);
+    $stm->bindParam(':username_IN',$username);
+    $stm->bindParam(':password_IN',$password);
+    $stm->bindParam(':name_IN',$name);
+
+    
+    if(isset($_POST['username'])){
+        $username = $_POST['username'];
+     
+        $stmt = $pdo->prepare("SELECT username FROM users WHERE username=:username");
+        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+        $stmt->execute(); 
+        $count = $stmt->fetchColumn();
+     
+        if($count > 0){
+            $msg ="Användarnamnet är redan taget, välj ett annat..";
+        }
+     
+        else if($stm->execute()) {
+            header("location:login.php");
+        }
+      
+     }
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,57 +51,16 @@ session_start();
 </head>
 
 <body>
-    <?php
 
-    // Koppling till databas
-    include("db.php");
-
-if(isset($_POST['register'])) 
-{ 
-    $name = $_POST['name'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-}
-
-// Verify required input fields when register
-
-if(empty($_POST["name"]) || empty($_POST["username"]) || empty($_POST["password"]))
-{
-    // Must fix error message on register.php 
-    $message = '<label> All fields are required to register</label>';
-    
-} else {
-
-    $sql = "INSERT INTO users (name, username, password) VALUES(:name_IN, :username_IN, :password_IN) ";
-    $stm = $pdo->prepare($sql);
-    $stm->bindParam(':name_IN', $name);
-    $stm->bindParam(':username_IN', $username);
-    $stm->bindParam(':password_IN', $password);
-
-      if($stm->execute()) {
-        header("location:login.php");
-      } else {
-        echo "Something went wrong!";      
-        }
-
-}
-
-?>
-
-
-<?php 
-    if(isset($message)) {
-        echo '<label>'.$message.'<label>';
-    } 
-?>
 
     <!-- FORMS  --> 
     <h2> REGISTER HERE! </h2>
-    <form method="POST" >
+    <form method="POST" action="register.php" >
         <input type="text" placeholder="Your name..." name="name"> <br>
         <input type="text" placeholder="Your username..." name="username"> <br>
         <input type="password" placeholder="Your password..." name="password"> <br>
         <input type="submit" value="Register" name="register" class="register-btn"> <br>
+        <div id="iderror" style="color:red;"><?php echo $msg; ?></div> <br>
         <p> Already registered? click here! <input type ="button" value="Login" name="login" class="loginbtn" onclick="location.href='login.php';"> <p>
     </form>
     

@@ -1,4 +1,66 @@
-<!DOCTYPE html>
+  <?php
+
+    // Koppling till databas
+    session_start();
+     include("db.php");
+
+    // Visa meddelande från databasen
+    echo "<h2>YOU SUCCESSFULLY REGISTERED!</h2><br />";
+    $stm = $pdo->query("SELECT id, name, username, password FROM users");?>
+
+    <?php while ($row = $stm->fetch()) { ?>
+    <div>
+        <?php $row['id']?>
+        <?php echo "name: " . $row['name']?>
+        <?php echo ":username " . $row['username']?>
+        <?php echo ":password " . $row['password']?>
+    </div>
+
+    <?php } ?> 
+
+
+
+
+    <?php
+    $msg ="";
+    if(isset($_POST['loginBtn'])){
+    $username= trim($_POST['username']);
+    $password = trim($_POST['password']);
+    if($username != "" & $password != "" ){
+        try {
+            $query = "SELECT * FROM `users` where `username` =:username_IN and `password`=:password_IN";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam('username_IN', $username);
+            $stmt->bindValue('password_IN', $password);
+            $stmt->execute();
+            $count = $stmt->rowCount();
+            $row   = $stmt->fetch();
+
+            
+                if($count == 1 && !empty($row)) {
+                    $_SESSION['sess_user_id'] = $row['id'];
+                    $_SESSION['sess_user_name'] = $row['username'];
+                    $_SESSION['sess_name'] = $row['name'];
+                    header("location:loggedin.php");
+                }
+                else {
+                   echo $msg = "Invalid username or password!";
+                }
+    }
+        catch(PDOException $e) {
+            echo "Error : ".$e->getMessage();
+        }
+       
+    }
+    else {
+       echo $msg = "Both fields are required!";
+    }
+}
+?>
+
+    <!-- FORMS  --> 
+
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,32 +74,16 @@
 </head>
 
 <body>
-    <?php
-
-    // Koppling till databas
-    include("db.php");
-
-    // Visa meddelande från databasen
-    echo "<h2>YOU SUCCESSFULLY REGISTERED!</h2><br />";
-    $stm = $pdo->query("SELECT id, name, username, password FROM users");?>
-
-    <?php while ($row = $stm->fetch()) { ?>
-    <div>
-        <?php echo $row['id']?>
-        <?php echo $row['name']?>
-        <?php echo $row['username']?>
-        <?php echo $row['password']?>
-    </div>
-
-    <?php } ?> 
 
 
-    <!-- FORMS  --> 
+    <form name="User" method="POST" action="login.php" align="center">
     <h2> LOG IN HERE! </h2>
-    <form method="POST" action=" ">
+        Username:<br>
         <input type="text" placeholder="Your username..." name="username"> <br>
+        Password:<br>
         <input type="password" placeholder="Your password..." name="password"> <br>
-        <input type="submit" value="Log in" class="register-btn">
+        <input type="submit" value="Login" name="loginBtn" >
+        <div id="iderror" style="color:red;"><?php echo $msg; ?></div> <br>
     </form>
     
 </body>

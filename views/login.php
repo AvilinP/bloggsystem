@@ -4,24 +4,7 @@
     session_start();
      include("db.php");
 
-    // Visa meddelande från databasen
-    echo "<h2>YOU SUCCESSFULLY REGISTERED!</h2><br />";
-    $stm = $pdo->query("SELECT id, name, username, password FROM users");?>
 
-    <?php while ($row = $stm->fetch()) { ?>
-    <div>
-        <?php $row['id']?>
-        <?php echo "name: " . $row['name']?>
-        <?php echo ":username " . $row['username']?>
-        <?php echo ":password " . $row['password']?>
-    </div>
-
-    <?php } ?> 
-
-
-
-
-    <?php
     $msg ="";
     if(isset($_POST['loginBtn'])){
     $username= trim($_POST['username']);

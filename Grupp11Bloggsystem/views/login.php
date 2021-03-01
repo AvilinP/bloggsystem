@@ -12,6 +12,7 @@
 </head>
 
 <body>
+<a href="logout.php"> log out</a>
     <?php
 
     // Koppling till databas

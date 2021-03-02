@@ -22,6 +22,7 @@ if(isset($_POST['register'])) {
     $name = $_POST['name'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $email = $_POST ['email'];
 }
 
 // Verify required input fields when register

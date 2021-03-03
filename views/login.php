@@ -11,6 +11,8 @@
     $password = trim($_POST['password']);
     if($username != "" & $password != "" ){
         try {
+
+            // Checks if the user exists in the db
             $query = "SELECT * FROM `users` where `username` =:username_IN and `password`=:password_IN";
             $stmt = $db->prepare($query);
             $stmt->bindParam('username_IN', $username);
@@ -19,11 +21,11 @@
             $count = $stmt->rowCount();
             $row   = $stmt->fetch();
 
-            
                 if($count == 1 && !empty($row)) {
                     $_SESSION['sess_user_id'] = $row['id'];
                     $_SESSION['sess_user_name'] = $row['username'];
                     $_SESSION['sess_name'] = $row['name'];
+                    $_SESSION['sess_role'] = $row['role'];
                     header("location:loggedin.php");
                 }
                 else {

@@ -43,7 +43,7 @@ if(empty($_POST["name"]) || empty($_POST["username"]) || empty($_POST["password"
             if($count > 0){
                 echo "Username already taken";
 
-            // If everything is ok, the new user i registered into db    
+            // If everything is ok, the new user is registered into db    
             } else {
 
                 $sql = "INSERT INTO users (name, username, password) VALUES(:name_IN, :username_IN, :password_IN) ";

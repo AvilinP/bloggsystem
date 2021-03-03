@@ -33,10 +33,10 @@ Comment: <br>
     <input type="submit" value="Remove entry">
 </form>
 
-<form action="handleEdit.php" method="GET">
+<form action="../partials/handleEdit.php" method="GET">
     Chose comment id to update the message! <br/>
     <input type="number" name="id"> <br/>
-    New message:<input type="text" name="newComment">
+    New message:<br><input type="text" name="newComment">
     <input type="submit" value="Edit entry">
 </form>
 

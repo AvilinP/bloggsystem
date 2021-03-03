@@ -1,3 +1,6 @@
+<a href="Logout.php">
+log out</a><br />
+
 <?php 
 session_start();
 
@@ -8,6 +11,8 @@ if(isset($_SESSION['sess_user_id']) && $_SESSION['sess_user_id'] != "") {
   echo "Vänligen logga in igen <a href='login.php'>login</a>";
   die();
 }
+
+
 
 ?>
 

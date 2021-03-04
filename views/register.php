@@ -22,6 +22,9 @@ if(isset($_POST['register'])) {
     $name = $_POST['name'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $salt = "95uygajk/&&%%1415043343agaeehlrieieiengvn##";
+    $password = md5($password.$salt);
+
 }
 
 // Verify required input fields when register

@@ -6,12 +6,6 @@ session_start();
 // Welcomes user 
 if(isset($_SESSION['sess_user_id']) && $_SESSION['sess_user_id']  != "") {
   echo '<h1>Welcome '.$_SESSION['sess_name'].'</h1>';
-<<<<<<< HEAD
-  echo '<h4><a href="logout.php">logout</a></h4>';
-} else { 
-  echo "Vänligen logga in igen <a href='login.php'>login</a>";
-  die();
-=======
   echo '<h4><a href="logout.php">Logout</a></h4>';
 
   // Checks if they have an admin role
@@ -23,7 +17,6 @@ if(isset($_SESSION['sess_user_id']) && $_SESSION['sess_user_id']  != "") {
     echo "You don't have admin rights. Please log in/register again <a href='register.php'>here</a>";
     die();
   }
->>>>>>> 84205ac4828c1a86b85d4923a3571b532b09d247
 }
 
 

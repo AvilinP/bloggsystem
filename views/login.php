@@ -12,6 +12,9 @@
     if($username != "" & $password != "" ){
         try {
 
+            $salt = "95uygajk/&&%%1415043343agaeehlrieieiengvn##";
+            $password = md5($password.$salt);
+
             // Checks if the user exists in the db
             $query = "SELECT * FROM `users` where `username` =:username_IN and `password`=:password_IN";
             $stmt = $db->prepare($query);

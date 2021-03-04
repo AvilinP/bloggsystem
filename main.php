@@ -7,7 +7,7 @@ session_start();
 if(isset($_SESSION['sess_user_id']) && $_SESSION['sess_user_id']  != "")
 {
     echo '<h1>Welcome '.$_SESSION['sess_name'].'</h1>';
-    echo '<h4><a href="logout.php">Logout</a></h4>';
+    echo '<h4><a href="views/logout.php">Logout</a></h4>';
 
     // Shows posts from loggedin.php
     $stm = $pdo->query("SELECT id, username, comment FROM comments");

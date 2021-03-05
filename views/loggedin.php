@@ -32,6 +32,14 @@ Comment: <br>
 <input type="submit" value="Submit comment!" />
 </form>
 
+
+<form  method="POST" action="../partials/handleUpload.php" enctype="multipart/form-data">
+Upload picture! <br>
+<input type="file" name="imageToUpload" value="Picture" /> <br>
+<input type="submit"  value="Upload">
+</form>
+
+
 <form action="../partials/handleRemove.php" method="GET">
     Chose comment id to remove the message! <br/>
     <input type="number" name="id"> <br/>

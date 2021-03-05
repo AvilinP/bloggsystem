@@ -21,4 +21,11 @@ if(isset($_SESSION['sess_user_id']) && $_SESSION['sess_user_id']  != "")
    
 }
 
+
+$stm = $pdo->query("SELECT image FROM posts");
+    while($row = $stm->fetch()) {
+        echo '<img src="../bloggsystem' . $row['image'] . '" height=300 /><br />';
+    }
+
+
 ?>

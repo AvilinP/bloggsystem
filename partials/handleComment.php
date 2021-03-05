@@ -1,6 +1,6 @@
-              <!-- /////// PHP FOR HANDLING COMMENTS INTO "GUESTBOOK ENTRIES!"  -->
+              <!-- /////// PHP FOR HANDLING COMMENTS INTO "BLOGPOSTS"  -->
+<?php
 
-<?php 
 session_start();
 include("../views/db.php");
 

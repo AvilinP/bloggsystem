@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REGISTER</title>
-
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css">
 
 </head>
@@ -75,8 +76,11 @@ if(empty($_POST["name"]) || empty($_POST["username"]) || empty($_POST["password"
     
         <h2 class="register-form-h2"> REGISTER HERE! </h2>
         <form method="POST" action="register.php" class="register-form-inputs">
+            Name:<br>
             <input type="text" placeholder="Your name..." name="name"> <br>
+            Username:<br>
             <input type="text" placeholder="Your username..." name="username"> <br>
+            Password:<br>
             <input type="password" placeholder="Your password..." name="password"> <br>
             <input type="submit" value="Register" name="register" class="register-btn"> <br>
             </form>

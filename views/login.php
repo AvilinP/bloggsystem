@@ -57,15 +57,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INDEX</title>
 
-    <link rel="stylesheet" href="style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
-<body>
+<body id="register-body">
 
 
-    <form name="User" method="POST" action="login.php" align="center">
-    <h2> LOG IN HERE! </h2>
+<div id="register-form">
+
+    <form name="User" method="POST" action="login.php" class="register-form-inputs">
+    <h2 class="register-form-h2"> LOG IN HERE! </h2>
         Username:<br>
         <input type="text" placeholder="Your username..." name="username"> <br>
         Password:<br>
@@ -73,6 +76,8 @@
         <input type="submit" value="Login" name="loginBtn" >
         <div id="iderror" style="color:red;"><?php echo $msg; ?></div> <br>
     </form>
+
+</div>   
     
 </body>
 

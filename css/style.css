@@ -1,4 +1,41 @@
-/* Register */ 
+/* Global */
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: futura;
+}
+
+
+/* Blog page */
+
+#blog-nav {
+    background-color: lightslategray;
+    height: 6rem;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1.5rem;
+}
+
+#blog-nav-logo {
+    width: 5rem;
+    height: 5rem;
+}
+
+
+#blog-nav-a {
+    color: darkgreen;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+
+
+/* Register and login form*/ 
 
 #register-body {
     background-color: rgb(225, 225, 225);

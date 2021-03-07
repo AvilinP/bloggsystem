@@ -7,11 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REGISTER</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
-<body>
+<body id="register-body">
+
+
+
+
 <?php
 
 // Connection to db
@@ -31,7 +35,7 @@ if(isset($_POST['register'])) {
 if(empty($_POST["name"]) || empty($_POST["username"]) || empty($_POST["password"] )){
 
     // Error message on register.php 
-    echo "All fields are required to register! </ br>";
+    echo '<p class="register-form-p"> All fields are required to register! </p> </ br>';
     
     // If all inputs are filled, else checks username before register in db    
     } else {
@@ -44,7 +48,7 @@ if(empty($_POST["name"]) || empty($_POST["username"]) || empty($_POST["password"
         $count = $stmt->rowCount();
 
             if($count > 0){
-                echo "Username already taken";
+                echo '<p class="register-form-p">Username already taken </p> </ br>';
 
             // If everything is ok, the new user is registered into db    
             } else {
@@ -65,16 +69,24 @@ if(empty($_POST["name"]) || empty($_POST["username"]) || empty($_POST["password"
 ?>
 
 
-    <!-- FORMS  --> 
-    <h2> REGISTER HERE! </h2>
-    <form method="POST" action="register.php" >
-        <input type="text" placeholder="Your name..." name="name"> <br>
-        <input type="text" placeholder="Your username..." name="username"> <br>
-        <input type="password" placeholder="Your password..." name="password"> <br>
-        <input type="submit" value="Register" name="register" class="register-btn"> <br>
-        <p> Already registered? click here! <input type ="button" value="Login" name="login" class="loginbtn" onclick="location.href='login.php';"> <p>
-    </form>
+    <!-- FORMS  -->
+
+    <div id="register-form">
     
+        <h2 class="register-form-h2"> REGISTER HERE! </h2>
+        <form method="POST" action="register.php" class="register-form-inputs">
+            <input type="text" placeholder="Your name..." name="name"> <br>
+            <input type="text" placeholder="Your username..." name="username"> <br>
+            <input type="password" placeholder="Your password..." name="password"> <br>
+            <input type="submit" value="Register" name="register" class="register-btn"> <br>
+            </form>
+
+            <p> Already registered? click here! <input type ="button" value="Login" name="login" class="loginbtn" onclick="location.href='login.php';"> <p>
+ 
+
+    </div>
+
+
 </body>
 
 </html>

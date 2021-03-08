@@ -22,7 +22,6 @@ if(isset($_SESSION['sess_user_id']) && $_SESSION['sess_user_id']  != "")
 }
 
 
-<<<<<<< HEAD
 
 
 
@@ -43,8 +42,7 @@ while($comment = $stm->fetch()) {
   echo "<p><b>". $comment['user'] ."</b><br />";
   echo $comment['comment'] ."</p>";
 }
-?>
-=======
+
 $stm = $pdo->query("SELECT image FROM posts");
     while($row = $stm->fetch()) {
         echo '<img src="../bloggsystem' . $row['image'] . '" height=300 /><br />';
@@ -52,4 +50,3 @@ $stm = $pdo->query("SELECT image FROM posts");
 
 
 ?>
->>>>>>> 20dbcda60af20e1435b55bfbac822e42e1a77654

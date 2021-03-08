@@ -11,7 +11,7 @@ if(isset($_SESSION['sess_user_id']) && $_SESSION['sess_user_id']  != "") {
 
   // Checks if they have an admin role
   if(isset($_SESSION['sess_role']) && $_SESSION['sess_role'] == "admin") {
-      echo "You're logged in as admin";
+      echo "You're logged in as admin" . " - <a href='../main.php'>Blog Page</a>";
   }
 
   else { 

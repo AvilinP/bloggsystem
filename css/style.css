@@ -1,0 +1,71 @@
+/* Global */
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: futura;
+}
+
+
+/* Blog page */
+
+#blog-nav {
+    background-color: lightslategray;
+    height: 6rem;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1.5rem;
+}
+
+#blog-nav-logo {
+    width: 5rem;
+    height: 5rem;
+}
+
+
+#blog-nav-a {
+    color: darkgreen;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+
+
+/* Register and login form*/ 
+
+#register-body {
+    background-color: rgb(225, 225, 225);
+    display: flex;
+    justify-content: center;
+}
+
+
+#register-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 10px 10px 5px grey;
+
+}
+
+.register-form-h2 {
+    text-align: center;
+}
+
+.register-form-p {
+    position: absolute;    
+    text-align: center;
+}
+
+.register-form-inputs {
+    display: flex;
+    flex-direction: column;
+}
+

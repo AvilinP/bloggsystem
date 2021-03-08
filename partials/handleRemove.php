@@ -6,7 +6,7 @@ include("../views/db.php");
 
 
 $idRemove = $_GET['id'];
-$stm = $pdo->query("DELETE FROM comments WHERE id=$idRemove");
+$stm = $pdo->query("DELETE FROM posts WHERE id=$idRemove");
 
 if($stm->execute()) {
     header("location:../views/loggedin.php");

@@ -1,18 +1,18 @@
-              <!-- /////// PHP FOR HANDLING COMMENTS INTO "GUESTBOOK ENTRIES!"  -->
+              /////// PHP FOR HANDLING COMMENTS INTO "GUESTBOOK ENTRIES!" 
 
-<?php 
+
 session_start();
 include("../views/db.php");
 
 
 
 $username = $_SESSION['sess_user_name'];
-$comment = $_POST['comment'];
+$description = $_POST['description'];
 
-$sql = "INSERT INTO comments(username, comment) VALUES(:username_IN, :comment_IN)";
+$sql = "INSERT INTO posts(username, description) VALUES(:username_IN, :description_IN)";
 $stm = $pdo->prepare($sql);
 $stm->bindParam(':username_IN',$username);
-$stm->bindParam(':comment_IN',$comment);
+$stm->bindParam(':description_IN',$description);
 
 if($stm->execute()) {
     header("location:../views/loggedin.php");

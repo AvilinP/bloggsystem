@@ -24,42 +24,37 @@ session_start();
 
         <img id="blog-nav-logo" src="uploads/Millhouse_logo.png" alt="Millhouse Logo">
 
-        <a id="blog-nav-a" href="views/register.php">Register/Login</a>
+        <?php
 
+        // if you're loggedin admin or user
+        if(isset($_SESSION['sess_user_id']) && $_SESSION['sess_user_id']  != "")
+        {
+            echo '<p id="blog-welcome-p">Welcome '.$_SESSION['sess_name'] . ' ' . '<a href="views/logout.php">- logout</a> </p>';
+        
+        ?>
     
     </nav>
 
 
-    
-<?php
+    <div id="main-blog-posts-container"> 
 
-// if you're loggedin admin or user
-if(isset($_SESSION['sess_user_id']) && $_SESSION['sess_user_id']  != "")
-{
-    echo '<h3 id="blog-welcome-h3">Welcome '.$_SESSION['sess_name'].'</h3>';
-    echo '<h4><a href="views/logout.php">Logout</a></h4>';
+    <?php
 
-    // Shows posts from loggedin.php
-    $stm = $pdo->query("SELECT id, username, comment FROM comments");
-    while($row = $stm->fetch()) 
-        echo $row['username'] . " " . $row['comment'] . "<br />";
-
-   } else { 
-   
-        echo "You're not logged in. Please log in/register <a href='views/register.php'>here</a>";
-        die();
-   
-}
+        } else { 
+        
+            echo '<p id="blog-welcome-p"> You\'re not logged in. Please log in/register ' . ' ' . '<a href="views/register.php">- here</a> </p>';
+            die();
+        }
+            // Shows posts from loggedin.php
+            $stm = $pdo->query("SELECT image, description FROM posts");
+            while($row = $stm->fetch()) {
+                echo '<div id="main-blog-posts"> <img src="../bloggsystem' . $row['image'] . '" height=200 /><br />';
+                echo '<p id="main-blog-posts-p">' . $row['description'] . '</p>' . '</div>';
+            }
+        ?>
 
 
-$stm = $pdo->query("SELECT image, description FROM posts");
-    while($row = $stm->fetch()) {
-        echo '<img src="../bloggsystem' . $row['image'] . '" height=300 /><br />';
-        echo $row['description'];
-    }
-
-
-?>
+    </div>
 
 </body>
 </html>

@@ -8,9 +8,9 @@ include("../views/db.php");
 
 
 $idEdit = $_GET['id'];
-$newComment = $_GET['newComment'];
+$newDescription = $_GET['newDesc'];
 
-$stm = $pdo->query("UPDATE comments SET comment = '$newComment' WHERE id=$idEdit");
+$stm = $pdo->query("UPDATE description SET description = '$newDescription' WHERE id=$idEdit");
 
 if($stm->execute()) {
     header("location:../views/loggedin.php");

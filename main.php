@@ -54,12 +54,13 @@ session_start();
             die();
         }
 
-        $stm = $pdo->query("SELECT image FROM posts");
+        $stm = $pdo->query("SELECT image, description FROM posts");
             while($row = $stm->fetch()) {
                 echo '<img src="../bloggsystem' . $row['image'] . '" height=300 /><br />';
+                echo $row['description'];
             }
-
         ?>
+
 
     </div>
 

@@ -11,7 +11,7 @@ if(isset($_SESSION['sess_user_id']) && $_SESSION['sess_user_id']  != "") {
 
   // Checks if they have an admin role
   if(isset($_SESSION['sess_role']) && $_SESSION['sess_role'] == "admin") {
-      echo "You're logged in as admin";
+      echo "You're logged in as admin" . "<br/>" . "<br/>";
   }
 
   else { 
@@ -24,16 +24,8 @@ if(isset($_SESSION['sess_user_id']) && $_SESSION['sess_user_id']  != "") {
 
 ?>
 
-<!-- <br>
-<br>
-<form  method="POST" action="../partials/handleComment.php">
-<input type="submit" value="Submit description!" />
-</form> -->
-
-
 <form  method="POST" action="../partials/handleUpload.php" enctype="multipart/form-data">
-Upload picture! <br>
-POST description: <br>
+POST Upload Picture & Description! <br>
 <textarea type="text" name="description" > </textarea> <br />
 <input type="file" name="imageToUpload" value="Picture" /> <br>
 <input type="submit"  value="Upload">
@@ -41,13 +33,13 @@ POST description: <br>
 
 
 <form action="../partials/handleRemove.php" method="GET">
-    Chose description id to remove the message! <br/>
+    Choose description id to remove the message! <br/>
     <input type="number" name="id"> <br/>
     <input type="submit" value="Remove entry">
 </form>
 
 <form action="../partials/handleEdit.php" method="GET">
-    Chose description id to update the message! <br/>
+    Choose description id to update the message! <br/>
     <input type="number" name="id"> <br/>
     New message:<br><input type="text" name="newDescription">
     <input type="submit" value="Edit entry">
@@ -60,7 +52,7 @@ POST description: <br>
 
 include("db.php");
 
-echo "<h2> Guestbook entries! </h2>";
+echo "<h2> Posts from mainpage! </h2>";
 
 $stm = $pdo->query("SELECT id, title, description, image, category, date, username FROM posts");
 

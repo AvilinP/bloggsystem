@@ -1,3 +1,5 @@
+                    <!-- /////// PHP FOR PUTTING PICTURE & DESCRIPTION INTO MAIN. -->
+
 <?php
 include("../views/db.php");
 session_start();
@@ -47,7 +49,7 @@ if(move_uploaded_file($_FILES['imageToUpload']['tmp_name'], $target_file)) {
     $stmt->bindParam(':username_IN',$username);
     $stmt->bindParam(':description_IN',$description);
     $stmt->bindParam(':image_IN',$target_file );
-    
+
         if($stmt->execute()) {
 
         

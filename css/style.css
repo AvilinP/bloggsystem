@@ -5,6 +5,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: futura;
+    background-color: lightgrey; 
 }
 
 
@@ -33,7 +34,50 @@ body {
     text-decoration: none;
 }
 
+#blog-welcome-p {
+    padding: 1rem;
+}
 
+#blog-welcome-p >a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+#main-blog-posts-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 2rem; 
+}
+
+#main-blog-posts {
+    background-color: lemonchiffon;
+    margin: 0.5rem;
+    padding: 2rem;
+}
+
+#main-blog-posts-p {
+    text-align: center;
+    width: 18rem;
+}
+
+
+/* Responsiveness on iPhone x and iPad */
+@media screen and (max-width: 1025px) {
+    #main-blog-posts-container {
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    #main-blog-posts-container {
+        padding: 0;
+    }
+}
 
 /* Register and login form*/ 
 

@@ -7,7 +7,6 @@ body {
     font-family: futura;
 }
 
-
 /* Blog page */
 
 #blog-nav {
@@ -33,6 +32,27 @@ body {
     text-decoration: none;
 }
 
+#blog-welcome-p {
+    padding: 1rem;
+}
+
+#blog-welcome-p >a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+#main-blog-posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem; 
+}
+
+#main-blog-posts >text {
+    padding-bottom: 2rem;
+}
 
 
 /* Register and login form*/ 

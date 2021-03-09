@@ -61,7 +61,7 @@ session_start();
 
 <form method="post" action="partials/handleComments2.php?id=<?=$row['id']?>"> <br />
 <b><?=$_SESSION['sess_user_name'] ?><br /><br /> 
-<textarea name="comment" rows="10"></textarea><br /><br />
+<textarea name="comment" rows="5" columns="100"></textarea><br /><br />
 <input type="submit" value="send comment!" /><br /><br />
 </form>
 

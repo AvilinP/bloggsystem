@@ -30,11 +30,16 @@ session_start();
         if(isset($_SESSION['sess_user_id']) && $_SESSION['sess_user_id']  != "")
         {
             echo '<p id="blog-welcome-p">Welcome '.$_SESSION['sess_name'] . ' ' . '<a href="views/logout.php">- logout</a> </p>';
+
+            if(isset($_SESSION['sess_role']) && $_SESSION['sess_role'] == "admin") {
+                echo '<p id="blog-welcome-p"> <a href="views/loggedin.php"> Create new post </a></p>';
+            }
         
         ?>
     
     </nav>
 
+<div id="main-page-container">
 
     <div id="main-blog-posts-container"> 
 
@@ -52,7 +57,9 @@ session_start();
                 echo '<p id="main-blog-posts-p">' . $row['description'] . '</p>' . '</div>';
             }
         ?>
+    </div>
 
+</div>
 
 
 

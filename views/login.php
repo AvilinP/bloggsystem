@@ -74,7 +74,7 @@
         Password:<br>
         <input type="password" placeholder="Your password..." name="password"> <br>
         <input type="submit" value="Login" name="loginBtn" >
-        <div id="iderror" style="color:red;"><?php echo $msg; ?></div> <br>
+        <!-- <div id="iderror" style="color:red;"><?php echo $msg; ?></div> <br> -->
     </form>
 
 </div>   

@@ -1,16 +1,18 @@
-/* Global */
+/* GLOBAL */
 
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: futura;
-    background-color: lightgrey; 
+    background-color: lightgrey;
 }
 
 
-/* Blog page */
+/* BLOG PAGE */
 
+
+/* nav bar */
 #blog-nav {
     background-color: lightslategray;
     height: 6rem;
@@ -36,6 +38,7 @@ body {
 
 #blog-welcome-p {
     padding: 1rem;
+    font-size: 1.2rem;
 }
 
 #blog-welcome-p >a {
@@ -43,20 +46,25 @@ body {
     color: black;
 }
 
+/* main page container */
+#main-page-container {
+    display: flex;
+}
 
 
+/* blog post container */
 #main-blog-posts-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    padding: 2rem; 
+    padding: 2rem;
 }
 
 #main-blog-posts {
     background-color: lemonchiffon;
     margin: 0.5rem;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 #main-blog-posts-p {
@@ -66,20 +74,32 @@ body {
 
 
 /* Responsiveness on iPhone x and iPad */
-@media screen and (max-width: 1025px) {
+@media screen and (min-width: 700px) and (max-width: 1025px) {
     #main-blog-posts-container {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 0;
     }
 
 }
 
 @media screen and (max-width: 400px) {
     #main-blog-posts-container {
+        flex-direction: row;
         padding: 0;
     }
+
+    #blog-welcome-p {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
 }
 
-/* Register and login form*/ 
+
+
+
+/* REGISTER & LOG IN FORMS */ 
 
 #register-body {
     background-color: rgb(225, 225, 225);

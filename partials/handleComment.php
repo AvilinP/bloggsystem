@@ -18,7 +18,7 @@ if($stm->execute()) {
     header("location:../views/loggedin.php");
 }
 else {
-    echo "Det gick fel!";
+    echo "Something went wrong!";
 }
 
 ?>

@@ -1,7 +1,22 @@
-<a href="Logout.php">
-log out</a><br />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG PAGE</title>
 
-<?php 
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+
+<nav id="blog-nav">
+        <img id="blog-nav-logo" src="../uploads/Millhouse_logo.png" alt="Millhouse Logo">
+        <a href="Logout.php" style="color: red;">
+log out</a><br />
+        <?php 
 session_start();
 
 // Welcomes logged in user 
@@ -23,26 +38,30 @@ if(isset($_SESSION['sess_user_id']) && $_SESSION['sess_user_id']  != "") {
 
 
 ?>
+        
+    </nav>
 
-<form  method="POST" action="../partials/handleUpload.php" enctype="multipart/form-data">
-POST Upload Picture & Description! <br>
+<div id="visiblePost">
+
+<form id="upload" method="POST" action="../partials/handleUpload.php" enctype="multipart/form-data">
+Admin Upload Picture & Description! <br>
 <textarea type="text" name="description" > </textarea> <br />
-<input type="file" name="imageToUpload" value="Picture" /> <br>
-<input type="submit"  value="Upload">
+<input id ="greenBtn" type="file" name="imageToUpload" value="Picture" /> <br>
+<input id="greenBtn" type="submit"  value="Upload"><br><br>
 </form>
+<br>
 
-
-<form action="../partials/handleRemove.php" method="GET">
-    Choose description id to remove the message! <br/>
+<form id="remove" action="../partials/handleRemove.php" method="GET">
+    Choose description id to remove the admin post! <br/>
     <input type="number" name="id"> <br/>
-    <input type="submit" value="Remove entry">
+    <input id ="greenBtn" type="submit" value="Remove entry"><br><br>
 </form>
-
-<form action="../partials/handleEdit.php" method="GET">
-    Choose description id to update the message! <br/>
+<br>
+<form id="edit" action="../partials/handleEdit.php" method="GET">
+    Choose description id and write new description to update the admin description! <br/>
     <input type="number" name="id"> <br/>
     New message:<br><input type="text" name="newDescription">
-    <input type="submit" value="Edit entry">
+    <br><input id="greenBtn" type="submit" value="Edit entry">
 </form>
 
 
@@ -61,3 +80,8 @@ while ($row = $stm->fetch()) {
     echo $row['id'] . ": " . "Username --> " . $row['username'] . " Description ---> " . $row['description'] . " IMAGE NAME ---> " .  $row['image'] . "<br />";
 } 
 ?>
+
+</div>
+
+</body>
+</html>

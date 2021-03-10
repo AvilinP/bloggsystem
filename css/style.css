@@ -133,3 +133,16 @@ body {
     flex-direction: column;
 }
 
+
+/* LOGGED IN */ 
+
+#visiblePost {
+    padding: 5rem;
+    text-align: center;
+    display: block;
+
+}
+
+#greenBtn{
+   color: green;
+}

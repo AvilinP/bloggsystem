@@ -58,7 +58,7 @@ session_start();
                 while($row = $stm->fetch()) {
 
                     // shows blog posts
-                    echo '<div id="main-blog-posts"> <img src="../bloggsystem' . $row['image'] . '" height=200 /><br />';
+                    echo '<div id="main-blog-posts"> <img src="bloggsystem/' . $row['image'] . '" height=200 /><br />';
                     echo '<p id="main-blog-posts-p">' . $row['description'] . '</p>' . '</div>'; 
                     ?>
 

@@ -59,41 +59,47 @@ session_start();
 
                     // shows blog posts
                     echo '<div id="main-blog-posts"> <img src="bloggsystem/' . $row['image'] . '" height=200 /><br />';
-                    echo '<p id="main-blog-posts-p">' . $row['description'] . '</p>' . '</div>'; 
+                    echo '<p id="main-blog-posts-p">' . $row['description'] . '</p>'; 
+
+                    
                     ?>
 
-                    <!-- comment form -->
-                    <form method="POST" action="partials/handleComments.php?id=<?=$row['id']?>">
-                        <b><?=$_SESSION['sess_name']?> </b><br>
-                        <textarea name="comment"></textarea> <br>
-                        <input type="submit" value="Submit">
+                        <!-- comment form -->
+                        <form method="POST" action="partials/handleComments.php?id=<?=$row['id']?>" id="main-comments-form">
+                            <b>What do you think <?=$_SESSION['sess_name']?>? </b><br>
+                            <textarea name="comment" rows="6" cols="30"></textarea> <br>
+                            <input type="submit" value="Submit your thoughts">
 
 
-                    </form>
+                        </form>
 
-                    <?php 
+                            <section id= main-comments-div>
 
-                    // shows comments for logged in user and admin
-                    $comments_stm = $pdo->query("SELECT comment, username FROM comments WHERE img_id=".$row['id']);
-                    while($comment = $comments_stm->fetch()) {
-                            echo "<p><b>" . $comment['username'] . "</b><br />";
-                            echo $comment['comment'] . "</p>";
+                            <?php 
 
-                    }
+                            // shows comments for logged in user and admin
+                            $comments_stm = $pdo->query("SELECT comment, username FROM comments WHERE img_id=".$row['id']);
+                            while($comment = $comments_stm->fetch()) {
+
+                                    echo '<p id="main-comments-p">' . 'Username: ' . $comment['username'] . '<br><br>';
+                                    echo '<i>' . $comment['comment'] . '</i></p>';
+
+                            }
+
+
+                    // closes div for posts and comments 
+                    echo '</div>';
 
                 }
-
 
                                         
             ?>
 
-                
+                            </section>  
+
         </div>
 
     </div>
-
-
-        
-
+    
 </body>
 </html>

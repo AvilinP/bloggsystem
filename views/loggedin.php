@@ -30,7 +30,7 @@ if(isset($_SESSION['sess_user_id']) && $_SESSION['sess_user_id']  != "") {
   }
 
   else { 
-    echo "You don't have admin rights. Please log in/register again <a href='register.php'>here</a>";
+    echo "You don't have admin rights. Please log in/register again <a href='register.php'>here</a> or go to main page <a href=' ../main.php'>here</a> ";
     die();
   }
 }

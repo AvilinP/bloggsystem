@@ -84,7 +84,17 @@ session_start();
                                     echo '<p id="main-comments-p">' . 'Username: ' . $comment['username'] . '<br><br>';
                                     echo '<i>' . $comment['comment'] . '</i></p>';
 
+                                        // if you're admin, it shows a delete btn
+                                        if(isset($_SESSION['sess_role']) && $_SESSION['sess_role'] == "admin"){ ?> 
+                                            <form method="POST" action="views/deleteComment.php?id=<?=$row['id']?>">
+                                                <input type="submit" value="Delete">
+                                            </form>
+                               <?php             
+                                }
+
                             }
+
+     
 
 
                     // closes div for posts and comments 

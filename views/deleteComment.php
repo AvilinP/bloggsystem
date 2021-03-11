@@ -1,11 +1,15 @@
-<?php
+<?php 
+
+include("../views/db.php");
 session_start();
-include '../db.php';
-$postId = $_SESSION['postId'];
+
+$idRemove = $_GET['id'];
+
+$stm = $pdo->prepare("DELETE FROM comments WHERE img_id=$idRemove");
 
 
-$pdo_stm = $pdo->prepare("DELETE from comments where commentID=" . $_GET['id']);
-$pdo_stm->execute();
-header("location:main.php?id=$postId");
+if($stm->execute()) {
+    header("location: ../main.php");
+}
 
 ?>

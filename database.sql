@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: localhost
--- Tid vid skapande: 09 mars 2021 kl 15:05
+-- Tid vid skapande: 10 mars 2021 kl 17:23
 -- Serverversion: 10.4.17-MariaDB
 -- PHP-version: 8.0.1
 
@@ -68,14 +68,9 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `description`, `image`, `category`, `date`, `username`) VALUES
-(8, '2021-03-08 12:37:49', ' Hej!\r\n\r\n\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', '../uploads/hero_start_main.jpg', NULL, NULL, 'benrangel_salt'),
 (10, '2021-03-08 12:53:52', 'HEJ!\r\n\r\n\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', '../uploads/hero_start_main.jpg', NULL, NULL, 'benrangel_salt'),
 (11, '2021-03-08 13:09:45', '  Hej! \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', '../uploads/hero_start_main.jpg', NULL, NULL, 'benrangel_salt'),
-(12, '2021-03-08 13:09:56', '  Hej! \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', '../uploads/hero_start_main.jpg', NULL, NULL, 'benrangel_salt'),
-(13, '2021-03-08 13:10:04', '  Hej! \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', '../uploads/hero_start_main.jpg', NULL, NULL, 'benrangel_salt'),
-(15, '2021-03-08 14:46:59', 'Hej då!', '../uploads/Skärmavbild 2021-03-08 kl. 13.20.34.png', NULL, NULL, 'benrangel_salt'),
-(16, '2021-03-08 14:58:38', ' HEJ!', '../uploads/Skärmavbild 2021-03-08 kl. 13.20.24.png', NULL, NULL, 'benrangel_salt'),
-(17, NULL, ' herjejht', '../uploads/Skärmavbild 2021-03-08 kl. 16.01.46.png', NULL, '2021-03-08', 'benrangel_salt');
+(12, '2021-03-08 13:09:56', '  Hej! \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', '../uploads/hero_start_main.jpg', NULL, NULL, 'benrangel_salt');
 
 -- --------------------------------------------------------
 
@@ -98,7 +93,6 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `role`, `name`, `username`, `password`) VALUES
 (71, 'user', 'lenny', 'lenny', '2f2cb8b56cba234d60378a535eef7544'),
 (72, 'admin', 'Ben', 'benrangel_salt', '2f2cb8b56cba234d60378a535eef7544'),
-(73, 'admin', 'Mona', 'mona', '2f2cb8b56cba234d60378a535eef7544'),
 (74, 'admin', 'Hanna', 'Banan', '2f2cb8b56cba234d60378a535eef7544');
 
 --
@@ -144,13 +138,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT för tabell `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT för tabell `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT för tabell `users`

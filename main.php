@@ -78,7 +78,7 @@ session_start();
                             <?php 
 
                             // shows comments for logged in user and admin
-                            $comments_stm = $pdo->query("SELECT comment, username FROM comments WHERE img_id=".$row['id']);
+                            $comments_stm = $pdo->query("SELECT * FROM comments WHERE img_id=".$row['id']);
                             while($comment = $comments_stm->fetch()) {
 
                                     echo '<p id="main-comments-p">' . 'Username: ' . $comment['username'] . '<br><br>';
@@ -86,7 +86,7 @@ session_start();
 
                                         // if you're admin, it shows a delete btn
                                         if(isset($_SESSION['sess_role']) && $_SESSION['sess_role'] == "admin"){ ?> 
-                                            <form method="POST" action="partials/deleteComment.php?id=<?=$row['id']?>">
+                                            <form method="POST" action="partials/deleteComment.php?id=<?=$comment['id']?>">
                                                 <input type="submit" value="Delete">
                                             </form>
                                <?php             

@@ -1,15 +1,16 @@
 <?php 
 
-include("../views/db.php");
-session_start();
+    include("../views/db.php");
+    session_start();
 
-$idRemove = $_GET['id'];
+    $deleteID = $_GET['id'];
 
-$stm = $pdo->prepare("DELETE FROM comments WHERE img_id=$idRemove");
+    $stm = $pdo->prepare("DELETE FROM comments WHERE id=$deleteID");
 
 
-if($stm->execute()) {
-    header("location: ../main.php");
-}
+    if($stm->execute()) {
+        header("location: ../main.php");
+    }
+
 
 ?>

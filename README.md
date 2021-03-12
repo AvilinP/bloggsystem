@@ -177,6 +177,14 @@ LINK TO DOWNLOAD
 https://www.apachefriends.org/index.html
 
 
+## Admin
+
+To be able to use the rights of an admin you will need to do the following steps.
+1, Create a user from register
+2, Log in as the user
+3, Go to your database and you will se that your "role" currently is stated as, "user" 
+Change the role to "admin" and logout. Login again and you will be able to use the admin rights.
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 

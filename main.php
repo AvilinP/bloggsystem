@@ -87,6 +87,8 @@ session_start();
                                         // if you're admin, it shows a delete btn
                                         if(isset($_SESSION['sess_role']) && $_SESSION['sess_role'] == "admin"){ ?> 
                                             <form method="POST" action="partials/deleteComment.php?id=<?=$row['id']?>">
+                                            <?=var_dump($row);
+                                            exit;?>
                                                 <input type="submit" value="Delete">
                                             </form>
                                <?php             
